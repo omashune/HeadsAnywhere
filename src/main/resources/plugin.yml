@@ -1,0 +1,8 @@
+name: HeadsAnywhere
+version: '${project.version}'
+main: ru.omashune.headsanywhere.HeadsAnywhere
+api-version: 1.19
+softdepend: [ PlaceholderAPI, SkinsRestorer ]
+authors: [ omashune ]
+description: Use players' heads anywhere!
+website: https://github.com/omashune
