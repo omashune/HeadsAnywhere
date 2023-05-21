@@ -8,10 +8,15 @@ resource-pack:
 
   # URL where the resource pack can be downloaded
   url: https://www.dropbox.com/s/uc2epfgztrw8mvz/HeadsAnywhere.zip?dl=1
-  
+
   # Should the plugin sent messages?
   messaging: false
+  # Should the plugin kick the player when they decline the resource pack or if the resource pack download fails?
+  kick-player: true
+
   # The message to be sent if the resource pack is successfully loaded
   successfully-loaded: '§aResource pack successfully loaded!'
-  # The message to be sent if the download fails
+  # The message to be sent if the download fails.
   failed-download: '§cFailed to download the resource pack. Please, contact the staff!'
+  # The message to be sent if the player declined the resource pack
+  declined: '§cYou need to accept the resource pack to play on the server!'

@@ -20,17 +20,34 @@ public class ResourcePackListener implements Listener {
 
     @EventHandler
     public void onResourcePackStatus(PlayerResourcePackStatusEvent e) {
-        if (!resourcePack.getBoolean("messaging")) return;
         Player player = e.getPlayer();
 
         switch (e.getStatus()) {
             case SUCCESSFULLY_LOADED:
-                player.sendMessage(resourcePack.getString("successfully-loaded", "§aSuccessfully loaded"));
+                sendMessageIfEnabled(player, "successfully-loaded", "§aSuccessfully loaded!");
                 break;
             case FAILED_DOWNLOAD:
-                player.sendMessage(resourcePack.getString("failed-download", "§cFailed to download the resource pack. Please, contact the staff!"));
+                if (kickPlayerIfEnabled(player, "failed-download", "§cFailed to download the resource pack. Please, contact the staff!")) return;
+                sendMessageIfEnabled(player, "failed-download", "§cFailed to download the resource pack. Please, contact the staff!");
+                break;
+            case DECLINED:
+                kickPlayerIfEnabled(player, "declined", "§cYou need to accept the resource pack to play on the server!");
                 break;
         }
+    }
+
+    private void sendMessageIfEnabled(Player player, String key, String def) {
+        if (resourcePack.getBoolean("messaging", false))
+            player.sendMessage(resourcePack.getString(key, def));
+    }
+
+    private boolean kickPlayerIfEnabled(Player player, String key, String def) {
+        if (resourcePack.getBoolean("kick-player", true)) {
+            player.kickPlayer(resourcePack.getString(key, def));
+            return true;
+        }
+
+        return false;
     }
 
 }
