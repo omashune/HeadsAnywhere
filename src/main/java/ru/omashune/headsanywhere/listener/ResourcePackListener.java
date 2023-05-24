@@ -27,13 +27,17 @@ public class ResourcePackListener implements Listener {
                 sendMessageIfEnabled(player, "successfully-loaded", "§aSuccessfully loaded!");
                 break;
             case FAILED_DOWNLOAD:
-                if (kickPlayerIfEnabled(player, "failed-download", "§cFailed to download the resource pack. Please, contact the staff!")) return;
-                sendMessageIfEnabled(player, "failed-download", "§cFailed to download the resource pack. Please, contact the staff!");
+                kickPlayerOrSendMessageIfEnabled(player, "failed-download", "§cFailed to download the resource pack. Please, contact the staff!");
                 break;
             case DECLINED:
-                kickPlayerIfEnabled(player, "declined", "§cYou need to accept the resource pack to play on the server!");
+                kickPlayerOrSendMessageIfEnabled(player, "declined", "§cYou need to accept the resource pack to play on the server!");
                 break;
         }
+    }
+
+    private void kickPlayerOrSendMessageIfEnabled(Player player, String key, String def) {
+        if (kickPlayerIfEnabled(player, key, def)) return;
+        sendMessageIfEnabled(player, key, def);
     }
 
     private void sendMessageIfEnabled(Player player, String key, String def) {
