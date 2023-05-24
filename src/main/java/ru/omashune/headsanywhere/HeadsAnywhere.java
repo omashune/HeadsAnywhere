@@ -15,7 +15,8 @@ public final class HeadsAnywhere extends JavaPlugin {
     public void onEnable() {
         saveDefaultConfig();
 
-        HeadManager headManager = new HeadManager(getConfig().getInt("cache-time", 300));
+        HeadManager headManager = new HeadManager(getConfig().getInt("cache-time", 300),
+                getConfig().getString("heads-provider", "https://minotar.net/helm/%s/8.png"));
         PluginManager pluginManager = Bukkit.getPluginManager();
 
         ConfigurationSection resourcePack = getConfig().getConfigurationSection("resource-pack");
