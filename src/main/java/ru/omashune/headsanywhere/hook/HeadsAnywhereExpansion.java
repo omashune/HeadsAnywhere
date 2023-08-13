@@ -30,6 +30,11 @@ public class HeadsAnywhereExpansion extends PlaceholderExpansion {
     }
 
     @Override
+    public boolean persist() {
+        return true;
+    }
+
+    @Override
     public @Nullable String onPlaceholderRequest(Player player, @NotNull String identifier) {
         if (player == null) return null;
         if (!identifier.equalsIgnoreCase("head")) return null;
