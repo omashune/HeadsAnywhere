@@ -36,10 +36,16 @@ public class HeadsAnywhereExpansion extends PlaceholderExpansion {
 
     @Override
     public @Nullable String onPlaceholderRequest(Player player, @NotNull String identifier) {
-        if (player == null) return null;
-        if (!identifier.equalsIgnoreCase("head")) return null;
+        if (!identifier.startsWith("head")) return null;
 
-        BaseComponent[] head = headManager.getPlayerHead(player);
-        return head == null ? "" : BaseComponent.toLegacyText(head) + ChatColor.RESET;
+        int index = identifier.indexOf("_");
+        String name = index == -1 ?
+                (player == null ? "" : player.getName()) :
+                identifier.substring(index + 1);
+
+        if (name.isEmpty()) return null;
+
+        BaseComponent[] head = headManager.getPlayerHead(name);
+        return head == null ? null : BaseComponent.toLegacyText(head) + ChatColor.RESET;
     }
 }

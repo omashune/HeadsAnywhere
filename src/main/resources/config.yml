@@ -2,8 +2,8 @@
 # Note: I recommend using a value from 1800 (30 minutes) to 10800 (3 hours).
 cache-time: 1800
 # The site that will be used to get the players' heads. Heads must be 8 pixels.
-# Sites I recommend: mc-heads.net, crafthead.net minotar.net
-heads-provider: 'https://minotar.net/helm/%s/8.png'
+# Sites I recommend: mc-heads.net, crafthead.net, minotar.net, visage.surgeplay.com
+heads-provider: 'https://mc-heads.net/avatar/%s/8'
 
 # Configure a resource pack
 resource-pack:

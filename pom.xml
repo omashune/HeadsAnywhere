@@ -6,7 +6,7 @@
 
     <groupId>ru.omashune</groupId>
     <artifactId>HeadsAnywhere</artifactId>
-    <version>1.2</version>
+    <version>1.3</version>
     <packaging>jar</packaging>
 
     <name>HeadsAnywhere</name>
@@ -99,7 +99,7 @@
         <dependency>
             <groupId>net.skinsrestorer</groupId>
             <artifactId>skinsrestorer-api</artifactId>
-            <version>14.2.10</version>
+            <version>15.0.0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
